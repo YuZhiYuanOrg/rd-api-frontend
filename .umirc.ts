@@ -7,17 +7,12 @@ export default defineConfig({
   initialState: {},
   request: {},
   layout: {
-    title: '@umijs/max',
+    title: 'Rustdesk 管理后台',
   },
   routes: [
     {
       path: '/',
-      redirect: '/home',
-    },
-    {
-      name: '首页',
-      path: '/home',
-      component: './Home',
+      redirect: '/update',
     },
     {
       name: '更新管理',
