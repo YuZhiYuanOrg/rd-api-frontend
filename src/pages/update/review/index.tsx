@@ -43,6 +43,7 @@ const ReviewRecord: React.FC = () => {
       title: '响应时间',
       dataIndex: 'response_time',
       valueType: 'dateTime',
+      search: false,
     },
   ];
 

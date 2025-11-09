@@ -97,6 +97,7 @@ const SoftwareConfig: React.FC = () => {
       title: '更新时间',
       dataIndex: 'updated_at',
       valueType: 'dateTime',
+      search: false,
     },
     {
       title: '操作',

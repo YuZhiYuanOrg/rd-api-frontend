@@ -62,6 +62,7 @@ const DeviceList: React.FC = () => {
       title: '请求时间',
       dataIndex: 'request_time',
       valueType: 'dateTime',
+      search: false,
     },
     {
       title: '操作',
