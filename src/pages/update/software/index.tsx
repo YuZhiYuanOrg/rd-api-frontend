@@ -9,7 +9,7 @@ import {
   ProFormTextArea,
   ProTable,
 } from '@ant-design/pro-components';
-import { Button, Drawer, message } from 'antd';
+import { Button, Drawer, message, Space } from 'antd';
 import React, { useRef, useState } from 'react';
 
 const { querySoftwareList, addSoftware, updateSoftware, deleteSoftware } =
@@ -117,21 +117,23 @@ const SoftwareConfig: React.FC = () => {
   ];
 
   const osOptions = [
-    { label: 'Ubuntu', value: 'Ubuntu' },
     { label: 'Windows', value: 'Windows' },
-    { label: 'macOS', value: 'macOS' },
-    { label: 'CentOS', value: 'CentOS' },
+    { label: 'Ubuntu', value: 'Ubuntu' },
+    { label: 'MacOS', value: 'MacOS' },
+    { label: 'Android', value: 'Android' },
+    { label: 'Flatpak', value: 'Flatpak' },
   ];
 
   const archOptions = [
     { label: 'x86_64', value: 'x86_64' },
-    { label: 'arm64', value: 'arm64' },
-    { label: 'x86', value: 'x86' },
+    { label: 'aarch64', value: 'aarch64' },
+    { label: 'armv7', value: 'armv7' },
+    { label: 'x86-32', value: 'x86-32' },
   ];
 
   const typeOptions = [
-    { label: 'rustdesk-client', value: 'rustdesk-client' },
-    { label: 'other-client', value: 'other-client' },
+    { label: 'exe', value: 'exe' },
+    { label: 'msi', value: 'msi' },
   ];
 
   return (
@@ -163,9 +165,10 @@ const SoftwareConfig: React.FC = () => {
       >
         <ProForm
           initialValues={formValues}
-          onValuesChange={setFormValues}
+          onValuesChange={(_, allValues) => setFormValues(allValues)}
           onFinish={handleSubmit}
           layout="vertical"
+          submitter={false}
         >
           <ProFormSelect
             name="os"
@@ -200,12 +203,12 @@ const SoftwareConfig: React.FC = () => {
             label="描述"
             placeholder="请输入描述信息"
           />
-          <ProForm.ButtonGroup>
+          <Space.Compact>
             <Button onClick={() => setVisible(false)}>取消</Button>
             <Button type="primary" htmlType="submit">
               {currentItem ? '更新' : '添加'}
             </Button>
-          </ProForm.ButtonGroup>
+          </Space.Compact>
         </ProForm>
       </Drawer>
     </PageContainer>
