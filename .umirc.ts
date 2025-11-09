@@ -20,15 +20,27 @@ export default defineConfig({
       component: './Home',
     },
     {
-      name: '权限演示',
-      path: '/access',
-      component: './Access',
-    },
-    {
-      name: ' CRUD 示例',
-      path: '/table',
-      component: './Table',
+      name: '更新管理',
+      path: '/update',
+      routes: [
+        {
+          name: '设备信息',
+          path: '/update/device',
+          component: './update/device',
+        },
+        {
+          name: '软件配置',
+          path: '/update/software',
+          component: './update/software',
+        },
+        {
+          name: '审查记录',
+          path: '/update/review',
+          component: './update/review',
+        },
+      ],
     },
   ],
   npmClient: 'yarn',
+  mock: false,
 });

@@ -1,16 +1,39 @@
-// 运行时配置
+// src/app.ts
+import { message } from 'antd';
 
-// 全局初始化数据配置，用于 Layout 用户信息和权限初始化
-// 更多信息见文档：https://umijs.org/docs/api/runtime-config#getinitialstate
-export async function getInitialState(): Promise<{ name: string }> {
-  return { name: '@umijs/max' };
-}
+// 配置请求拦截器和响应拦截器
+export const request = {
+  // 1. 请求拦截器：发送请求前的处理（拼接前缀、加Token、设置请求头）
+  requestInterceptors: [
+    (config) => {
+      // 拼接接口基础前缀（和后端约定的 api/v1 ）
+      config.baseURL = `http://localhost:3000`;
 
-export const layout = () => {
-  return {
-    logo: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',
-    menu: {
-      locale: false,
+      // 设置请求头为JSON格式（后端需支持）
+      config.headers['Content-Type'] = 'application/json';
+
+      // 允许跨域请求携带Cookie（如果后端需要，比如登录态）
+      config.withCredentials = true;
+
+      return config;
     },
-  };
+  ],
+
+  // 2. 响应拦截器：接收响应后的统一处理（错误提示、Token过期处理）
+  responseInterceptors: [
+    (response) => {
+      const { data } = response;
+      // 后端返回 success: false 时，统一提示错误信息
+      if (!data.success) {
+        message.error(data.errorMessage || '接口请求失败');
+      }
+      // Token过期处理（如果后端返回特定错误码，比如 401）
+      if (response.status === 401) {
+        message.error('登录已过期，请重新登录');
+        // 跳转到登录页（如果有登录页）
+        window.location.href = '/login';
+      }
+      return response;
+    },
+  ],
 };
