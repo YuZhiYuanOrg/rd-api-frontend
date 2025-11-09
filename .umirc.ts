@@ -24,14 +24,14 @@ export default defineConfig({
           component: './update/device',
         },
         {
-          name: '软件配置',
-          path: '/update/software',
-          component: './update/software',
-        },
-        {
           name: '审查记录',
           path: '/update/review',
           component: './update/review',
+        },
+        {
+          name: '软件配置',
+          path: '/update/software',
+          component: './update/software',
         },
       ],
     },

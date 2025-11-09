@@ -71,7 +71,6 @@ const ReviewRecord: React.FC = () => {
           };
         }}
         search={{
-          labelWidth: 120,
           items: [
             {
               name: 'device_id',
