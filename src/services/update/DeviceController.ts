@@ -7,7 +7,7 @@ export async function queryDeviceList(
     current?: number;
     pageSize?: number;
     os?: string;
-    device_id?: string;
+    id?: string;
     typ?: string;
   },
   options?: { [key: string]: any },

@@ -133,7 +133,7 @@ const SoftwareConfig: React.FC = () => {
   ];
 
   const typeOptions = [
-    { label: 'exe', value: 'exe' },
+    { label: 'rustdesk-client', value: 'rustdesk-client' },
     { label: 'msi', value: 'msi' },
   ];
 

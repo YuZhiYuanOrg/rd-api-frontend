@@ -16,7 +16,7 @@ const ReviewRecord: React.FC = () => {
   const columns = [
     {
       title: '设备ID',
-      dataIndex: 'device_id',
+      dataIndex: 'id',
       search: true,
     },
     {
@@ -73,7 +73,7 @@ const ReviewRecord: React.FC = () => {
         search={{
           items: [
             {
-              name: 'device_id',
+              name: 'id',
               label: '设备ID',
               type: 'text',
             },

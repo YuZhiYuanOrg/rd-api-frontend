@@ -7,7 +7,7 @@ declare namespace API {
     os: string;
     os_version: string;
     arch: string;
-    device_id: string;
+    id: string;
     typ: string;
     request_time?: string; // 发送时间
   }
@@ -27,7 +27,7 @@ declare namespace API {
   // 审查记录
   interface ReviewRecord {
     id?: string;
-    device_id: string;
+    id: string;
     download_url: string;
     response_time: string;
     os: string;

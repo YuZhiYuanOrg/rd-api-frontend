@@ -6,7 +6,7 @@ export async function queryReviewList(
   params: {
     current?: number;
     pageSize?: number;
-    device_id?: string;
+    id?: string;
     start_time?: string;
     end_time?: string;
   },

@@ -37,7 +37,7 @@ const DeviceList: React.FC = () => {
   const columns = [
     {
       title: '设备ID',
-      dataIndex: 'device_id',
+      dataIndex: 'id',
       search: true,
     },
     {
